@@ -4,22 +4,24 @@ data = {
     password: ""
 }
 
+const userinfo = [{ 'username': 'Danishkhan', 'password': 'Danish@123', 'name': 'Danish Khan', 'age': 25 },
+{ 'username': 'deepak', 'password': 'deepak@123', 'name': 'Deepak Kumar ', 'age': 22 },
+{ 'username': 'sandeep', 'password': 'sandeep@123', 'name': 'Sandeep Kumar', 'age': 23 },];
+
 function login() {
 
-    //     setTimeout(check, 3000);
-    //     console.log("wait for 3 sec...");
-    // }
-   
 
     let result = check(data.username, data.password)
-    console.log(result ? "Authanticated" : "Unauthanticated")
+    console.log(`my name ${result.name} and my age is ${result.age}`)
 }
 
-let check = (username, password) => {
-    if (username == "Danishkhan" && password == "Danish@123") {
-        return true;
+
+const check = (username, password) => {
+    for (userData of userinfo) {
+        // console.log(userData)
+        if (userData.username == username && userData.password == password) {
+            return userData
+        }
     }
-    else {
-        return false;
-    }
+    return false
 }
